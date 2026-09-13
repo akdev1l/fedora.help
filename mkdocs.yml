@@ -1,5 +1,8 @@
 site_name: fedora.help
 site_url: https://fedora.help
+copyright: >-
+  Content licensed
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 theme:
   name: material
   features:
