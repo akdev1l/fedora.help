@@ -1,0 +1,31 @@
+site_name: Fedora Unofficial Help
+site_url: https://fedora.help
+theme:
+  name: material
+  features:
+    - navigation.indexes
+
+nav:
+  - Home: index.md
+  - Secure Boot: secure-boot.md
+  - Third-Party Repositories: repositories.md
+  - NVIDIA Drivers:
+      - nvidia.md
+      - The negativo17 Route: nvidia-negativo17.md
+  - Multimedia and Codecs: multimedia.md
+  - Automation:
+      - automation.md
+      - Fedora Tricks: automation-fedoratricks.md
+
+plugins:
+  - search
+  - macros
+
+markdown_extensions:
+  - attr_list
+
+extra:
+  brand: fedora.help
+
+extra_css:
+  - stylesheets/extra.css

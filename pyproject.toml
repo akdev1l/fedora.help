@@ -1,0 +1,27 @@
+[project]
+name = "fedora-help-website"
+version = "0.1.0"
+description = "https://fedora.help"
+authors = [
+    {name = "Alex Diaz",email = "alex@akdev.xyz"}
+]
+license = {text = "GPL-3.0"}
+requires-python = ">=3.14"
+dependencies = [
+]
+
+
+[tool.poetry]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocs-material (>=9.7.7,<10.0.0)",
+    "mkdocs-macros-plugin (>=1.5.0,<2.0.0)"
+]
