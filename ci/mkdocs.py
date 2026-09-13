@@ -12,12 +12,12 @@ basicConfig(
 log = getLogger(__name__)
 
 def main():
-    log.info("Hello World!")
+    log.info("mkdocs %s", " ".join(argv[1:]))
     run([
         "poetry",
         "run",
         "mkdocs",
-        *argv
+        *argv[1:]
     ])
 
 

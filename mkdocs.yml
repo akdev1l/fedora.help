@@ -1,4 +1,4 @@
-site_name: Fedora Unofficial Help
+site_name: fedora.help
 site_url: https://fedora.help
 theme:
   name: material
@@ -20,6 +20,75 @@ nav:
 plugins:
   - search
   - macros
+  - i18n:
+      docs_structure: suffix
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Home: Inicio
+            Secure Boot: Arranque Seguro
+            Third-Party Repositories: Repositorios de Terceros
+            NVIDIA Drivers: Controladores NVIDIA
+            The negativo17 Route: La vía negativo17
+            Multimedia and Codecs: Multimedia y Códecs
+            Automation: Automatización
+            Fedora Tricks: Fedora Tricks
+        - locale: pt
+          name: Português
+          build: true
+          nav_translations:
+            Home: Início
+            Secure Boot: Inicialização Segura
+            Third-Party Repositories: Repositórios de Terceiros
+            NVIDIA Drivers: Drivers NVIDIA
+            The negativo17 Route: A via negativo17
+            Multimedia and Codecs: Multimídia e Codecs
+            Automation: Automação
+            Fedora Tricks: Fedora Tricks
+        - locale: fr
+          name: Français
+          build: true
+          nav_translations:
+            Home: Accueil
+            Secure Boot: Démarrage sécurisé
+            Third-Party Repositories: Dépôts tiers
+            NVIDIA Drivers: Pilotes NVIDIA
+            The negativo17 Route: La voie negativo17
+            Multimedia and Codecs: Multimédia et codecs
+            Automation: Automatisation
+            Fedora Tricks: Fedora Tricks
+        - locale: zh
+          name: 简体中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Secure Boot: 安全启动
+            Third-Party Repositories: 第三方仓库
+            NVIDIA Drivers: NVIDIA 驱动
+            The negativo17 Route: negativo17 方案
+            Multimedia and Codecs: 多媒体与编解码器
+            Automation: 自动化
+            Fedora Tricks: Fedora Tricks
+        - locale: ru
+          name: Русский
+          build: true
+          nav_translations:
+            Home: Главная
+            Secure Boot: Безопасная загрузка
+            Third-Party Repositories: Сторонние репозитории
+            NVIDIA Drivers: Драйверы NVIDIA
+            The negativo17 Route: Вариант negativo17
+            Multimedia and Codecs: Мультимедиа и кодеки
+            Automation: Автоматизация
+            Fedora Tricks: Fedora Tricks
 
 markdown_extensions:
   - attr_list
