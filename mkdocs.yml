@@ -93,6 +93,11 @@ plugins:
             Automation: Автоматизация
             Fedora Tricks: Fedora Tricks
 
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: false
+      fallback_to_build_date: true
+
 markdown_extensions:
   - attr_list
 
