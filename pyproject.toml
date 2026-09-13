@@ -1,11 +1,12 @@
 [project]
 name = "fedora-help-website"
 version = "0.1.0"
-description = "https://fedora.help"
+description = "Unofficial guide to the software Fedora cannot ship: codecs, proprietary drivers, third-party repositories, and post-install fixes"
 authors = [
     {name = "Alex Diaz",email = "alex@akdev.xyz"}
 ]
-license = {text = "GPL-3.0"}
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 requires-python = ">=3.14"
 dependencies = [
 ]
