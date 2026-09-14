@@ -7,11 +7,14 @@ Set those up once; the other pages assume you have been here first.
 | --- | --- | --- | --- |
 | RPM Fusion | The patent-encumbered and non-free packages Fedora excludes: the full FFmpeg, the restricted GStreamer plugins, the NVIDIA driver, Steam | A volunteer group, most of them Fedora packagers | [RPM Fusion](rpmfusion.md) |
 | negativo17 | The same NVIDIA driver as RPM Fusion, packaged differently, plus CUDA and other hardware-adjacent software | Simone Caronni, a Fedora packager, on his own infrastructure | [negativo17](negativo17.md) |
+| Terra | Around three thousand packages Fedora does not carry, rolling rather than frozen: newer desktop software, shell tooling, Wayland compositors | Fyra Labs, the team behind Ultramarine Linux | [Terra](terra.md) |
 | Flathub | Sandboxed desktop applications, including most of the proprietary ones: Steam, Discord, Spotify, Chrome | A grassroots community; each application comes from its own publisher | [Flathub](flathub.md) |
 | COPR | Whatever an individual chose to build. One project per owner, no common policy | The builder of each project. Fedora runs the service, not the content | [COPR](copr.md) |
 
 Most people need RPM Fusion and nothing else. negativo17 is an alternative for
-the NVIDIA driver, and the two cannot be mixed for it. Flathub is a different
+the NVIDIA driver, and the two cannot be mixed for it. Terra adds software
+neither of them carries, and its graphics and multimedia channels are optional
+for the same reason. Flathub is a different
 kind of source — sandboxed applications rather than system packages — and
 Fedora already ships a filtered version of it. COPR is where you go for a
 package that exists in none of them.
