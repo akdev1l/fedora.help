@@ -2,9 +2,10 @@
 
 The rest of this site is written as manual steps. You read a command, decide
 whether you want what it does, and run it. Some projects package the same
-post-install work as a program instead: enable the third-party repositories,
-install the codecs, set up the NVIDIA driver, write the usual modprobe options,
-all in one run.
+post-install work as a program instead: enable
+[the third-party repositories](../repositories.md), install
+[the codecs](../multimedia.md), set up [the NVIDIA driver](../nvidia/index.md),
+write the usual modprobe options, all in one run.
 
 This section catalogues those tools, so you can decide whether to use one in
 place of working through the manual pages.
@@ -23,4 +24,4 @@ disagree, that is noted.
 
 - [Fedora Tricks](fedoratricks.md) — a Bash command-line tool that
   enables RPM Fusion, installs the multimedia stack, and sets up the NVIDIA
-  driver. Distributed as an RPM from a COPR.
+  driver. Distributed as an RPM from a [COPR](../repositories.md#copr).

@@ -29,11 +29,13 @@ judgement about their track record and does not change the trust model.
 will not. It is the de facto standard third-party repo for Fedora and what most
 of this site assumes. It comes in three parts:
 
-- **free** — open source software Fedora excludes for patent reasons. The full
-  FFmpeg, `libavcodec-freeworld`, x264/x265, `mesa-va-drivers-freeworld`, the
-  restricted GStreamer plugins.
-- **nonfree** — redistributable but not open source. The NVIDIA driver, Intel's
-  full media driver, Steam.
+- **free** — open source software Fedora excludes for patent reasons.
+  [The full FFmpeg](multimedia.md#swap-to-the-full-ffmpeg),
+  `libavcodec-freeworld`, x264/x265, `mesa-va-drivers-freeworld`,
+  [the restricted GStreamer plugins](multimedia.md#gstreamer-plugins).
+- **nonfree** — redistributable but not open source.
+  [The NVIDIA driver](nvidia/index.md),
+  [Intel's full media driver](multimedia.md#intel), Steam.
 - **tainted** — a separate opt-in repository for packages with a worse legal
   position still, notably `libdvdcss`. Not enabled by installing the other two.
 
@@ -53,7 +55,8 @@ Install both even if you only came for one of them. The NVIDIA driver is in
 `nonfree`, the multimedia packages are mostly in `free`, and several `nonfree`
 packages depend on `free`.
 
-Then refresh and reboot before installing anything that builds a kernel module:
+Then refresh and reboot before installing anything that
+[builds a kernel module](secure-boot.md):
 
 ```bash
 sudo dnf upgrade --refresh
@@ -78,7 +81,7 @@ sudo dnf install rpmfusion-free-release-tainted
 ```
 
 What it holds is covered where it is used — see
-[Multimedia and Codecs](multimedia.md) for `libdvdcss`.
+[Multimedia and Codecs](multimedia.md#optional-extras) for `libdvdcss`.
 
 ### On atomic desktops
 
@@ -109,7 +112,8 @@ RPM Fusion documents the atomic case in full on its [OSTree page][rpmfusion-ostr
 It overlaps RPM Fusion rather than complementing it: smaller split packages,
 more built from source, closer adherence to Fedora packaging guidelines, and a
 choice between akmods and DKMS for kernel modules. It is organised as several
-separate repositories — the NVIDIA one is the one most people want.
+separate repositories — [the NVIDIA one](nvidia/negativo17.md) is the one most
+people want.
 
 Enable the NVIDIA repository:
 
