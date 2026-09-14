@@ -52,36 +52,6 @@ plugins:
           default: true
           name: English
           build: true
-        - locale: es
-          name: Español
-          build: true
-          nav_translations:
-            Home: Inicio
-            Secure Boot: Arranque Seguro
-            Third-Party Repositories: Repositorios de Terceros
-            NVIDIA Drivers: Controladores NVIDIA
-            Multimedia and Codecs: Multimedia y Códecs
-            Tooling: Herramientas
-        - locale: pt
-          name: Português
-          build: true
-          nav_translations:
-            Home: Início
-            Secure Boot: Inicialização Segura
-            Third-Party Repositories: Repositórios de Terceiros
-            NVIDIA Drivers: Drivers NVIDIA
-            Multimedia and Codecs: Multimídia e Codecs
-            Tooling: Ferramentas
-        - locale: fr
-          name: Français
-          build: true
-          nav_translations:
-            Home: Accueil
-            Secure Boot: Démarrage sécurisé
-            Third-Party Repositories: Dépôts tiers
-            NVIDIA Drivers: Pilotes NVIDIA
-            Multimedia and Codecs: Multimédia et codecs
-            Tooling: Outils
         - locale: zh
           name: 简体中文
           build: true
@@ -92,6 +62,66 @@ plugins:
             NVIDIA Drivers: NVIDIA 驱动
             Multimedia and Codecs: 多媒体与编解码器
             Tooling: 工具
+        - locale: hi
+          name: हिन्दी
+          build: true
+          nav_translations:
+            Home: मुख्य पृष्ठ
+            Secure Boot: सुरक्षित बूट
+            Third-Party Repositories: तृतीय-पक्ष रिपॉजिटरी
+            NVIDIA Drivers: NVIDIA ड्राइवर
+            Multimedia and Codecs: मल्टीमीडिया और कोडेक
+            Tooling: उपकरण
+        - locale: es
+          name: Español
+          build: true
+          nav_translations:
+            Home: Inicio
+            Secure Boot: Arranque Seguro
+            Third-Party Repositories: Repositorios de Terceros
+            NVIDIA Drivers: Controladores NVIDIA
+            Multimedia and Codecs: Multimedia y Códecs
+            Tooling: Herramientas
+        - locale: ar
+          name: العربية
+          build: true
+          nav_translations:
+            Home: الرئيسية
+            Secure Boot: الإقلاع الآمن
+            Third-Party Repositories: مستودعات الطرف الثالث
+            NVIDIA Drivers: تعريفات NVIDIA
+            Multimedia and Codecs: الوسائط المتعددة والترميزات
+            Tooling: الأدوات
+        - locale: fr
+          name: Français
+          build: true
+          nav_translations:
+            Home: Accueil
+            Secure Boot: Démarrage sécurisé
+            Third-Party Repositories: Dépôts tiers
+            NVIDIA Drivers: Pilotes NVIDIA
+            Multimedia and Codecs: Multimédia et codecs
+            Tooling: Outils
+        - locale: bn
+          name: বাংলা
+          build: true
+          nav_translations:
+            Home: প্রথম পাতা
+            Secure Boot: সিকিউর বুট
+            Third-Party Repositories: তৃতীয় পক্ষের রিপোজিটরি
+            NVIDIA Drivers: NVIDIA ড্রাইভার
+            Multimedia and Codecs: মাল্টিমিডিয়া ও কোডেক
+            Tooling: সরঞ্জাম
+        - locale: pt
+          name: Português
+          build: true
+          nav_translations:
+            Home: Início
+            Secure Boot: Inicialização Segura
+            Third-Party Repositories: Repositórios de Terceiros
+            NVIDIA Drivers: Drivers NVIDIA
+            Multimedia and Codecs: Multimídia e Codecs
+            Tooling: Ferramentas
         - locale: ru
           name: Русский
           build: true
@@ -102,6 +132,16 @@ plugins:
             NVIDIA Drivers: Драйверы NVIDIA
             Multimedia and Codecs: Мультимедиа и кодеки
             Tooling: Инструменты
+        - locale: id
+          name: Bahasa Indonesia
+          build: true
+          nav_translations:
+            Home: Beranda
+            Secure Boot: Secure Boot
+            Third-Party Repositories: Repositori Pihak Ketiga
+            NVIDIA Drivers: Driver NVIDIA
+            Multimedia and Codecs: Multimedia dan Kodek
+            Tooling: Perkakas
 
   - git-revision-date-localized:
       type: date
