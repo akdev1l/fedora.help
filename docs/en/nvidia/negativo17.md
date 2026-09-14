@@ -26,10 +26,11 @@ packages first.
 Both work. Neither is "correct".
 
 Take RPM Fusion if you have an older card needing a legacy branch, if you run
-an atomic variant, or if you want the path with the most community
-troubleshooting behind it. Take negativo17 if you want newer driver branches
-sooner, want DKMS instead of akmods, or want the finer-grained package split —
-CUDA libraries without the display driver, for instance.
+[an atomic variant](index.md#atomic-variants-silverblue-kinoite), or if you
+want the path with the most community troubleshooting behind it. Take
+negativo17 if you want newer driver branches sooner, want DKMS instead of
+akmods, or want the finer-grained package split — CUDA libraries without the
+display driver, for instance.
 
 negativo17 packages only the current branch. If your card needs 580, 470 or
 390, this route is not available to you — see
@@ -37,8 +38,9 @@ negativo17 packages only the current branch. If your card needs 580, 470 or
 
 ## Install
 
-Sort out [Secure Boot](../secure-boot.md) first, the same as on the RPM Fusion
-route. Enable the `fedora-nvidia` repository as described in
+Sort out [Secure Boot](../secure-boot.md) first, the same as on
+[the RPM Fusion route](index.md#secure-boot-do-this-before-you-install-anything).
+Enable the `fedora-nvidia` repository as described in
 [Third-Party Repositories](../repositories.md#negativo17), then install with
 akmods:
 
@@ -74,16 +76,18 @@ Wait for the module to build and verify it before rebooting — the same
 `modinfo -F version nvidia` check, and the same reasons, as
 [What akmods actually does](index.md#what-akmods-actually-does-and-why-you-must-wait).
 
-> negativo17's own installation page tells you to disable Secure Boot rather
+> negativo17's own installation page tells you to
+> [disable Secure Boot](../secure-boot.md#turning-it-off) rather
 > than sign, and points at Red Hat's module-signing guide as the alternative.
 > The akmods route above works here too, since the same `akmods` package builds
 > and signs it.
 
 ## Open and proprietary kernel modules
 
-negativo17's packaging lets you switch between the proprietary and open kernel
-module sources through `/etc/nvidia/kernel.conf`, rebuilding with `akmods
---rebuild` or the equivalent `dkms build` / `dkms install` pair. Its
+negativo17's packaging lets you switch between
+[the proprietary and open kernel module sources](index.md#open-vs-proprietary-kernel-module)
+through `/etc/nvidia/kernel.conf`, rebuilding with `akmods --rebuild` or the
+equivalent `dkms build` / `dkms install` pair. Its
 documentation carries the exact commands; they reference driver versions in the
 545 era, so treat the version strings there as examples rather than as current.
 
@@ -116,8 +120,8 @@ sudo dnf5 install akmod-nvidia
 
 Between the removal and the reinstall your machine has no NVIDIA driver. Run
 the whole sequence in one sitting, and verify with `modinfo` before rebooting.
-If something goes wrong partway, you can still boot — the removal strips the
-nouveau blacklist from your kernel arguments.
+If something goes wrong partway, you can still boot — the removal
+[strips the nouveau blacklist from your kernel arguments](index.md#what-the-package-changed-on-your-machine).
 
 ## How do I tell which one is installed?
 

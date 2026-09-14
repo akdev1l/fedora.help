@@ -47,7 +47,7 @@ Both `install` commands have a matching `remove`.
 ## How to run it
 
 The COPR is a personal repository, under the same trust model as anything on
-[Third-Party Repositories](../repositories.md).
+[Third-Party Repositories](../repositories.md#copr).
 
 ```bash
 sudo dnf copr enable rhea/fedoratricks
@@ -86,7 +86,8 @@ no action it prints help and exits non-zero.
 blast radius, and it prints each command before executing it — more visible
 than a typical curl-to-shell installer. It is still a program with `sudo`
 rights making package and kernel-configuration changes on your machine, from a
-COPR outside Fedora's trust boundary, at version 0.3.
+COPR [outside Fedora's trust boundary](../repositories.md#what-you-are-agreeing-to),
+at version 0.3.
 
 **The output goes to a log, not your terminal.** Command output is redirected
 by default to `/var/log/fedoratricks`, with
@@ -98,8 +99,9 @@ past, which is the moment you would normally catch an unexpected
 
 **It makes the decisions for you.** The commands it prints are close to what
 the manual pages here use. What it decides: which packages go in the optional
-set, whether to suppress weak dependencies, which NVIDIA branch your card
-wants, what modprobe options are worth setting. If something breaks later — a
+set, whether to suppress weak dependencies,
+[which NVIDIA branch your card wants](../nvidia/index.md#identify-your-gpu-and-pick-a-branch),
+what modprobe options are worth setting. If something breaks later — a
 release upgrade stalling on a swapped package, a driver that loads but will not
 drive the card — you will be debugging choices you did not make. The printed
 commands and the log give you a way back to them.
@@ -121,8 +123,9 @@ in between still on the system with no repository behind it.
 COPR follows Fedora branching and currently builds for 43, 44, 45 and Rawhide.
 The NVIDIA branch mapping is the exception.
 
-**Not for atomic desktops.** Silverblue, Kinoite and the other rpm-ostree
-variants are detected and refused outright. There is no `rpm-ostree` path.
+**Not for atomic desktops.** Silverblue, Kinoite and the other
+[rpm-ostree variants](../repositories.md#on-atomic-desktops) are detected and
+refused outright. There is no `rpm-ostree` path.
 
 ## Sources
 

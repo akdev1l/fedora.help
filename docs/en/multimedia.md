@@ -4,9 +4,11 @@ A fresh Fedora install plays AV1 and WebM perfectly and chokes on a plain MP4.
 That is the first thing most people hit, and it is the one post-install problem
 where the fix genuinely requires software Fedora cannot ship.
 
-This page covers the codec situation end to end: what already works, what RPM
-Fusion adds, how to get hardware video decoding actually running, and why none
-of it applies to your Flatpak apps.
+This page covers the codec situation end to end:
+[what already works](#what-already-works),
+[what RPM Fusion adds](#rpm-fusion),
+[how to get hardware video decoding actually running](#hardware-video-acceleration),
+and why none of it applies to [your Flatpak apps](#flatpak-apps).
 
 ## Why the multimedia stack is limited
 
@@ -96,8 +98,8 @@ family has to come out with it.
 What that one command unlocks, because all of these link or `dlopen`
 `libavcodec`: mpv, VLC (through `vlc-plugin-ffmpeg`), Fedora's Chromium,
 Firefox, and GStreamer's `libav` plugin. It also switches on the VA-API decode
-paths inside FFmpeg itself — the hardware side still needs a driver, covered
-below.
+paths inside FFmpeg itself — the hardware side still needs a driver,
+[covered below](#hardware-video-acceleration).
 
 **The lighter alternative.** `libavcodec-freeworld` keeps Fedora's `ffmpeg-free`
 installed and drops a fuller `libavcodec` into `/usr/lib64/ffmpeg`, ahead of the
@@ -243,10 +245,10 @@ LIBVA_DRIVER_NAME=iHD vainfo
 
 ### NVIDIA
 
-NVIDIA needs the proprietary driver first — that is its own chapter, and
-everything here assumes it is already installed and working. The VA-API side is
-a shim that translates VA-API calls to NVDEC, and Fedora now ships it in the
-main repositories:
+NVIDIA needs the proprietary driver first — that is
+[its own chapter](nvidia/index.md), and everything here assumes it is already
+installed and working. The VA-API side is a shim that translates VA-API calls
+to NVDEC, and Fedora now ships it in the main repositories:
 
 ```bash
 sudo dnf install libva-nvidia-driver
@@ -275,8 +277,9 @@ vdpauinfo
 
 **Firefox** on Fedora loads the system FFmpeg at runtime. With `ffmpeg-free`
 installed it falls back to OpenH264 for H.264, which is why video on a stock
-install is either absent or software-decoded at baseline quality. After the
-`ffmpeg` swap it gets the full decoder set and can use VA-API.
+install is either absent or software-decoded at baseline quality. After
+[the `ffmpeg` swap](#swap-to-the-full-ffmpeg) it gets the full decoder set and
+can use VA-API.
 
 Check `about:support` and look at the `HARDWARE_VIDEO_DECODING` row. "Available
 by default" means it is on. Hardware decode has been enabled by default for
@@ -339,7 +342,8 @@ flatpak info --show-runtime org.videolan.VLC
 Hardware decode inside a Flatpak uses the runtime's Mesa, not yours, and needs
 access to `/dev/dri` — which most media applications already hold. The practical
 consequence is that a Flatpak can have working hardware decode on a host with
-none installed, and vice versa. Check with the application's own diagnostics
+none installed, and vice versa. Check with
+[the application's own diagnostics](#inside-a-flatpak)
 (`about:support`, `chrome://gpu`, mpv's console output) rather than assuming the
 host result carries over.
 
@@ -349,8 +353,9 @@ On Silverblue, Kinoite and the other atomic variants, `dnf` is not the tool;
 `rpm-ostree` layers packages onto the base image, and every change costs a
 reboot, slows every subsequent update, and is one more thing that can block a
 rebase. That is why the usual answer on atomic is Flatpak-first: install VLC,
-mpv, Firefox and the rest from Flathub and let their runtimes bring their own
-codecs, which sidesteps this entire page.
+mpv, Firefox and the rest from Flathub and let
+[their runtimes bring their own codecs](#flatpak-apps), which sidesteps this
+entire page.
 
 If you do want the host stack layered, layer the RPM Fusion release packages
 first and reboot — see
@@ -369,7 +374,8 @@ sudo rpm-ostree override remove \
 ```
 
 The hardware driver packages layer normally — `mesa-va-drivers-freeworld`,
-`intel-media-driver` or `libva-nvidia-driver`, same choice as above.
+`intel-media-driver` or `libva-nvidia-driver`,
+[same choice as above](#hardware-video-acceleration).
 
 One atomic-specific trap: at a major release upgrade the RPM Fusion release
 packages have to be replaced in the same transaction as the rebase — see
@@ -390,8 +396,9 @@ dnf5 repoquery --installed --queryformat '%{name} %{from_repo}\n' 'ffmpeg*'
 
 `ffmpeg-free` from `fedora` or `updates` is Fedora's reduced build. `ffmpeg` from
 a third-party repository is the full one. If you took the
-`libavcodec-freeworld` route instead of the swap, `ffmpeg-free` stays installed
-and the package name stops answering the question — go by the decoder list.
+[`libavcodec-freeworld` route](#swap-to-the-full-ffmpeg) instead of the swap,
+`ffmpeg-free` stays installed and the package name stops answering the
+question — go by the decoder list.
 
 That list, the command in [What already works](#what-already-works), is the
 authority for your machine. On Fedora 44's `ffmpeg-free` the `h264` and `hevc`
@@ -458,8 +465,8 @@ whichever `libavcodec` is installed and registers only the codecs that library
 provides. With `ffmpeg-free` in place neither element exists at all —
 `avdec_mpeg2video`, `avdec_vp9` and `avdec_aac` are there, the H.264 and HEVC
 wrappers are not. After the swap they appear. HEVC through
-`gstreamer1-plugins-bad-freeworld` arrives as a different element, so find it by
-pattern rather than by guessing the name:
+[`gstreamer1-plugins-bad-freeworld`](#gstreamer-plugins) arrives as a different
+element, so find it by pattern rather than by guessing the name:
 
 ```bash
 gst-inspect-1.0 | grep -iE 'h264|h265|hevc'
@@ -617,10 +624,12 @@ only the second check catches it.
 
 ### Why is HEVC still missing after installing everything?
 
-HEVC comes from three different places depending on the application: the full
-`ffmpeg` for anything FFmpeg-based, `gstreamer1-plugins-bad-freeworld` for
-GStreamer applications, and the GPU driver for hardware decode. Installing one
-does not cover the others. On hardware older than roughly 2015 there may be no
+HEVC comes from three different places depending on the application:
+[the full `ffmpeg`](#swap-to-the-full-ffmpeg) for anything FFmpeg-based,
+[`gstreamer1-plugins-bad-freeworld`](#gstreamer-plugins) for GStreamer
+applications, and [the GPU driver](#hardware-video-acceleration) for hardware
+decode. Installing one does not cover the others. On hardware older than
+roughly 2015 there may be no
 HEVC hardware decode at all, and 10-bit HEVC (HDR content) is a separate
 capability from 8-bit — compare the file's `ffprobe` profile against the profiles
 `vainfo` lists.

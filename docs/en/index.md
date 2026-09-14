@@ -1,9 +1,11 @@
 # {{ brand }}: Make Fedora Yours
 
 {{ brandlink() }} is an unofficial, community-run guide to the software Fedora
-can't ship: multimedia codecs, the NVIDIA driver, third-party repos like RPM
-Fusion and Flathub, and the closed-source apps most desktops end up wanting.
-Plus the fixes a fresh install usually needs.
+can't ship: [multimedia codecs](multimedia.md),
+[the NVIDIA driver](nvidia/index.md), third-party repos like
+[RPM Fusion](repositories.md#rpm-fusion) and Flathub, and the closed-source
+apps most desktops end up wanting. Plus the fixes a fresh install usually
+needs.
 
 ## Why this site exists
 

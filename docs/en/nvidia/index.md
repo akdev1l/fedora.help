@@ -37,8 +37,9 @@ any NVIDIA card. What it does not do:
   with it.
 
 The driver is absent because NVIDIA ships it under a licence that forbids the
-redistribution Fedora requires — the same reason the codecs are missing. See
-the [landing page][index] for the general shape of that.
+redistribution Fedora requires — the same reason
+[the codecs are missing](../multimedia.md#why-the-multimedia-stack-is-limited).
+See the [landing page][index] for the general shape of that.
 
 ## Do you need it?
 
@@ -47,12 +48,15 @@ encoding, or you have a card too new for Mesa. Do not install it if the machine
 is a laptop where you mostly care about battery life, if your card is old
 enough that no supported branch covers it, or if the desktop already works and
 you have no complaint — the proprietary driver adds an out-of-tree kernel
-module that has to be rebuilt on every kernel update, and that is a standing
-maintenance cost.
+module that has to be
+[rebuilt on every kernel update](#living-with-kernel-updates), and that is a
+standing maintenance cost.
 
 The costs, stated once: the driver is non-free, it is not auditable, it is
-built and distributed outside Fedora's trust boundary by a third party, and it
-loads as an unsigned kernel module unless you sign it yourself.
+built and distributed
+[outside Fedora's trust boundary](../repositories.md#what-you-are-agreeing-to)
+by a third party, and it loads as an unsigned kernel module unless you
+[sign it yourself](../secure-boot.md#enrolling-your-own-key).
 
 ## Identify your GPU and pick a branch
 
@@ -139,7 +143,7 @@ before installing the driver.
 
 The driver is in RPM Fusion's **nonfree** repository. Enable `free` and
 `nonfree`, then update and reboot, as described in
-[Third-Party Repositories](../repositories.md#rpm-fusion).
+[Third-Party Repositories](../repositories.md#enabling-free-and-nonfree).
 
 The reboot matters here. Install the driver against a kernel you are not
 running and the akmod system will cope, but you have made your own debugging
@@ -242,7 +246,8 @@ The package also installs `nvidia-fallback.service`, which fires when nouveau is
 blacklisted but `/sys/module/nvidia` does not exist — it loads nouveau anyway
 and prints *"NVIDIA kernel module missing. Falling back to nouveau"* on the
 Plymouth splash. If you see that message, you have a working desktop and a
-broken driver: go back to `modinfo` above.
+broken driver: go back to
+[`modinfo` above](#what-akmods-actually-does-and-why-you-must-wait).
 
 Uninstalling removes those kernel arguments again, so a clean removal does not
 leave you with nouveau blacklisted and nothing to replace it.
@@ -258,10 +263,10 @@ open-source (MIT/GPL) one. Userspace stays proprietary either way. Recent RPM
 Fusion packages ship both sources and pick between them at build time based on
 your GPU's PCI ID, so the default is normally right and there is nothing to do.
 
-An `akmod-nvidia-open` package exists in RPM Fusion's `tainted` repository for
-people who need to patch the open kernel module themselves. It is deliberately
-kept out of the default repositories; if you are not modifying the module
-source, you do not want it.
+An `akmod-nvidia-open` package exists in RPM Fusion's
+[`tainted` repository](../repositories.md#tainted) for people who need to patch
+the open kernel module themselves. It is deliberately kept out of the default
+repositories; if you are not modifying the module source, you do not want it.
 
 ### Keep dnf from removing it
 
@@ -362,8 +367,10 @@ times, so battery life drops.
 ## Living with kernel updates
 
 Every Fedora kernel update invalidates your NVIDIA module. A module built for
-6.19.14 will not load on 6.20.1. The akmod or DKMS machinery exists to rebuild
-it, and nearly always does so during the kernel's own dnf transaction.
+6.19.14 will not load on 6.20.1. The
+[akmod](#what-akmods-actually-does-and-why-you-must-wait) or
+[DKMS](negativo17.md#install) machinery exists to rebuild it, and nearly always
+does so during the kernel's own dnf transaction.
 
 It fails when the build fails: a kernel too new for the driver branch, a missing
 `kernel-devel`, a compiler change, out-of-disk. You find out at the next reboot.
@@ -545,7 +552,7 @@ the key enrolled (`sudo mokutil --test-key
 /etc/pki/akmods/certs/public_key.der`).
 
 A module that built fine but is refused at load time is almost always a
-signature problem:
+[signature problem](../secure-boot.md#troubleshooting):
 
 ```bash
 sudo dmesg | grep -iE 'nvidia|lockdown|module verification'
@@ -563,7 +570,8 @@ the rebuild.
 ### Why is the display stuck at 1024x768?
 
 The NVIDIA driver is not in use. Either it fell back to nouveau, in which case
-see the previous entry, or `nomodeset` is on the kernel command line:
+see [the previous entry](#what-does-nvidia-kernel-module-missing-falling-back-to-nouveau-mean),
+or `nomodeset` is on the kernel command line:
 
 ```bash
 cat /proc/cmdline
@@ -614,7 +622,7 @@ memory preservation enabled, check that `/var/tmp` has room for the dump.
 
 ### Why did `dnf autoremove` remove the driver?
 
-It considers `akmod-nvidia` a leaf package:
+It considers `akmod-nvidia` [a leaf package](#keep-dnf-from-removing-it):
 
 ```bash
 sudo dnf5 mark user akmod-nvidia
@@ -630,7 +638,7 @@ NVIDIA and RPM Fusion both want the same log bundle:
 sudo nvidia-bug-report.sh
 ```
 
-[index]: index.md
+[index]: ../index.md
 [rpmfusion-nvidia]: https://rpmfusion.org/Howto/NVIDIA
 [rpmfusion-optimus]: https://rpmfusion.org/Howto/Optimus
 [chips]: https://download.nvidia.com/XFree86/Linux-x86_64/615.71.09/README/supportedchips.html

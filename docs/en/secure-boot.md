@@ -2,9 +2,9 @@
 
 Secure Boot is the firmware checking a signature before it runs anything. On
 Fedora it works out of the box, and it keeps working until you install a kernel
-module Fedora did not sign — the NVIDIA driver, VirtualBox, some Wi-Fi and
-touchpad drivers, anything built by akmods or DKMS. The kernel then refuses to
-load the module.
+module Fedora did not sign — [the NVIDIA driver](nvidia/index.md), VirtualBox,
+some Wi-Fi and touchpad drivers, anything built by akmods or DKMS. The kernel
+then refuses to load the module.
 
 That refusal is quiet. There is no error in the installation output, and the
 symptom arrives one reboot later: a black screen, or a desktop running on a
@@ -23,9 +23,10 @@ described in [Turning it off](#turning-it-off).
 ## Enrolling your own key
 
 The approach Fedora and RPM Fusion document: generate a keypair, enroll the
-public half in the firmware's Machine Owner Key list, and let akmods sign every
-module it builds with it. Do this **before** installing a driver — doing it
-afterwards works, but you get one bad boot in between.
+public half in the firmware's Machine Owner Key list, and let
+[akmods](nvidia/index.md#what-akmods-actually-does-and-why-you-must-wait) sign
+every module it builds with it. Do this **before** installing a driver — doing
+it afterwards works, but you get one bad boot in between.
 
 This reproduces RPM Fusion's [Secure Boot HowTo][rpmfusion-secureboot].
 
@@ -100,16 +101,18 @@ setting until you set a supervisor password.
 
 ## On atomic desktops
 
-Silverblue, Kinoite and the rest build modules while composing a deployment,
-which means the signing key has to be available during the compose — it has to
-be packaged rather than sitting in `/etc`. RPM Fusion points at the third-party
-[silverblue-akmods-keys][sbkeys] repository for this. It has had no commits
-since 2023, so verify it against your release before relying on it.
+[Silverblue, Kinoite and the
+rest](nvidia/index.md#atomic-variants-silverblue-kinoite) build modules while
+composing a deployment, which means the signing key has to be available during
+the compose — it has to be packaged rather than sitting in `/etc`. RPM Fusion
+points at the third-party [silverblue-akmods-keys][sbkeys] repository for this.
+It has had no commits since 2023, so verify it against your release before
+relying on it.
 
-Prebuilt images sidestep the problem by shipping modules already signed with
-the project's key; you enroll that key once. Universal Blue's images wrap it in
-`ujust enroll-secure-boot-key`, where the password is set by the image rather
-than by you.
+[Prebuilt images](nvidia/index.md#the-prebuilt-route) sidestep the problem by
+shipping modules already signed with the project's key; you enroll that key
+once. Universal Blue's images wrap it in `ujust enroll-secure-boot-key`, where
+the password is set by the image rather than by you.
 
 ## What breaks it later
 
@@ -133,8 +136,9 @@ mokutil --test-key /etc/pki/akmods/certs/public_key.der
 
 **Black screen after installing a driver.** Boot the previous kernel from the
 GRUB menu, or add `nomodeset` to the kernel command line from the GRUB editor,
-then work from a TTY. [NVIDIA Drivers](nvidia/index.md) has the full recovery
-sequence for that case.
+then work from a TTY.
+[NVIDIA Drivers](nvidia/index.md#recovering-from-a-black-screen) has the full
+recovery sequence for that case.
 
 **`mokutil --test-key` says the key is not enrolled, but you enrolled it.**
 Either the MOK Manager password was mistyped — see the QWERTY note above — or a
