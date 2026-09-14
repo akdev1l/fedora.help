@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 64" width="244" height="64" role="img" aria-label="f.help infinity">
+  <title>f.help</title>
+  <g fill="#ffffff">
+    <text x="4" y="45"
+          font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
+          font-size="42" font-weight="600" letter-spacing="-1">f.help</text>
+  </g>
+  <g transform="translate(160 13) scale(0.68)" fill="none" stroke="#ffffff"
+     stroke-width="9" stroke-linecap="round">
+    <path d="M25 25C25 11 45 11 50 25C55 39 75 39 75 25C75 11 55 11 50 25C45 39 25 39 25 25Z"/>
+  </g>
+</svg>
