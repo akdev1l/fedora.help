@@ -17,7 +17,11 @@ theme:
 nav:
   - Home: index.md
   - Secure Boot: secure-boot.md
-  - Third-Party Repositories: repositories.md
+  - Third-Party Repositories:
+      - repositories/index.md
+      - RPM Fusion: repositories/rpmfusion.md
+      - negativo17: repositories/negativo17.md
+      - COPR: repositories/copr.md
   - NVIDIA Drivers:
       - nvidia/index.md
       - negativo17: nvidia/negativo17.md

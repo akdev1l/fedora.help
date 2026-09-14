@@ -74,7 +74,7 @@ treat that output as the authority rather than any list written down elsewhere.
 
 ## RPM Fusion
 
-The codecs on this page come from [RPM Fusion](repositories.md#rpm-fusion): the
+The codecs on this page come from [RPM Fusion](repositories/rpmfusion.md): the
 `free` side for the patent-encumbered open source packages, `nonfree` for
 Intel's full media driver. That page covers enabling it, what it costs you in
 trust and support, and the atomic-desktop variant.
@@ -157,7 +157,7 @@ Adds the x264 and x265 *encoders* to VLC. VLC's decoding comes from FFmpeg, so
 this only matters if you transcode.
 
 Encrypted DVDs need the tainted repository — see
-[Third-Party Repositories](repositories.md#tainted) — and then `libdvdcss`:
+[Third-Party Repositories](repositories/rpmfusion.md#tainted) — and then `libdvdcss`:
 
 ```bash
 sudo dnf install libdvdcss
@@ -359,7 +359,7 @@ entire page.
 
 If you do want the host stack layered, layer the RPM Fusion release packages
 first and reboot — see
-[Third-Party Repositories](repositories.md#on-atomic-desktops).
+[Third-Party Repositories](repositories/rpmfusion.md#on-atomic-desktops).
 
 The FFmpeg swap has no `rpm-ostree` equivalent, so it is expressed as an override
 that removes the whole `-free` family and installs the replacement in one
@@ -379,7 +379,7 @@ The hardware driver packages layer normally — `mesa-va-drivers-freeworld`,
 
 One atomic-specific trap: at a major release upgrade the RPM Fusion release
 packages have to be replaced in the same transaction as the rebase — see
-[Third-Party Repositories](repositories.md#on-atomic-desktops).
+[Third-Party Repositories](repositories/rpmfusion.md#on-atomic-desktops).
 
 ## Testing what your system supports
 

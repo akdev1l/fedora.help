@@ -3,7 +3,7 @@
 The rest of this site is written as manual steps. You read a command, decide
 whether you want what it does, and run it. Some projects package the same
 post-install work as a program instead: enable
-[the third-party repositories](../repositories.md), install
+[the third-party repositories](../repositories/index.md), install
 [the codecs](../multimedia.md), set up [the NVIDIA driver](../nvidia/index.md),
 write the usual modprobe options, all in one run.
 
@@ -24,4 +24,4 @@ disagree, that is noted.
 
 - [Fedora Tricks](fedoratricks.md) — a Bash command-line tool that
   enables RPM Fusion, installs the multimedia stack, and sets up the NVIDIA
-  driver. Distributed as an RPM from a [COPR](../repositories.md#copr).
+  driver. Distributed as an RPM from a [COPR](../repositories/copr.md).

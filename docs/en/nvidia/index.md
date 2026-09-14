@@ -54,7 +54,7 @@ standing maintenance cost.
 
 The costs, stated once: the driver is non-free, it is not auditable, it is
 built and distributed
-[outside Fedora's trust boundary](../repositories.md#what-you-are-agreeing-to)
+[outside Fedora's trust boundary](../repositories/index.md#what-you-are-agreeing-to)
 by a third party, and it loads as an unsigned kernel module unless you
 [sign it yourself](../secure-boot.md#enrolling-your-own-key).
 
@@ -143,7 +143,7 @@ before installing the driver.
 
 The driver is in RPM Fusion's **nonfree** repository. Enable `free` and
 `nonfree`, then update and reboot, as described in
-[Third-Party Repositories](../repositories.md#enabling-free-and-nonfree).
+[Third-Party Repositories](../repositories/rpmfusion.md#enabling-free-and-nonfree).
 
 The reboot matters here. Install the driver against a kernel you are not
 running and the akmod system will cope, but you have made your own debugging
@@ -264,7 +264,7 @@ Fusion packages ship both sources and pick between them at build time based on
 your GPU's PCI ID, so the default is normally right and there is nothing to do.
 
 An `akmod-nvidia-open` package exists in RPM Fusion's
-[`tainted` repository](../repositories.md#tainted) for people who need to patch
+[`tainted` repository](../repositories/rpmfusion.md#tainted) for people who need to patch
 the open kernel module themselves. It is deliberately kept out of the default
 repositories; if you are not modifying the module source, you do not want it.
 
@@ -455,7 +455,7 @@ can fail outright. Reboot to apply.
 The outline matches the classic install. Every mechanical step differs.
 
 Add RPM Fusion and reboot so the repositories exist — see
-[Third-Party Repositories](../repositories.md#on-atomic-desktops).
+[Third-Party Repositories](../repositories/rpmfusion.md#on-atomic-desktops).
 
 Layer the driver:
 
@@ -488,7 +488,7 @@ What differs from the classic workflow:
   the GRUB menu.
 - **Major version upgrades need the release packages re-layered** in the same
   transaction as the rebase — see
-  [Third-Party Repositories](../repositories.md#on-atomic-desktops).
+  [Third-Party Repositories](../repositories/rpmfusion.md#on-atomic-desktops).
 - **Secure Boot is genuinely awkward.** The signing key has to be available
   during the compose, which means packaging it rather than leaving it in
   `/etc` — see [Secure Boot](../secure-boot.md#on-atomic-desktops).

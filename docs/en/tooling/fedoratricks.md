@@ -33,7 +33,7 @@ Four commands are reachable in 0.3: `rpmfusion`, `multimedia`, `nvidia` and
 
 | Command | What it does | Manual equivalent |
 | --- | --- | --- |
-| `rpmfusion install` | Installs the free and nonfree release packages for the release `rpm -E %fedora` reports, then enables the four repositories explicitly | [Third-Party Repositories](../repositories.md) |
+| `rpmfusion install` | Installs the free and nonfree release packages for the release `rpm -E %fedora` reports, then enables the four repositories explicitly | [Third-Party Repositories](../repositories/index.md) |
 | `rpmfusion remove` | Removes the two release packages. The tainted repository is untouched at both ends | |
 | `multimedia install` | Swaps RPM Fusion's FFmpeg in for `ffmpeg-free` and installs the `multimedia` group, offering to run the `rpmfusion` step first if the repositories are missing | [Multimedia and Codecs](../multimedia.md) |
 | `multimedia install --with-optional` | Adds codec extras, then reads the GPU from `lspci` and adds the VA-API driver for it | |
@@ -47,7 +47,7 @@ Both `install` commands have a matching `remove`.
 ## How to run it
 
 The COPR is a personal repository, under the same trust model as anything on
-[Third-Party Repositories](../repositories.md#copr).
+[Third-Party Repositories](../repositories/copr.md).
 
 ```bash
 sudo dnf copr enable rhea/fedoratricks
@@ -86,7 +86,7 @@ no action it prints help and exits non-zero.
 blast radius, and it prints each command before executing it — more visible
 than a typical curl-to-shell installer. It is still a program with `sudo`
 rights making package and kernel-configuration changes on your machine, from a
-COPR [outside Fedora's trust boundary](../repositories.md#what-you-are-agreeing-to),
+COPR [outside Fedora's trust boundary](../repositories/index.md#what-you-are-agreeing-to),
 at version 0.3.
 
 **The output goes to a log, not your terminal.** Command output is redirected
@@ -124,7 +124,7 @@ COPR follows Fedora branching and currently builds for 43, 44, 45 and Rawhide.
 The NVIDIA branch mapping is the exception.
 
 **Not for atomic desktops.** Silverblue, Kinoite and the other
-[rpm-ostree variants](../repositories.md#on-atomic-desktops) are detected and
+[rpm-ostree variants](../repositories/rpmfusion.md#on-atomic-desktops) are detected and
 refused outright. There is no `rpm-ostree` path.
 
 ## Sources

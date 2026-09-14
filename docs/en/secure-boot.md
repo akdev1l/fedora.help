@@ -84,7 +84,7 @@ and every future one.
 
 DKMS signs with its own per-system key at `/var/lib/dkms/mok.pub`, enrolled
 with the same `mokutil --import` step. The rest of the flow is identical.
-[negativo17](repositories.md#negativo17) offers DKMS as an alternative to
+[negativo17](repositories/negativo17.md) offers DKMS as an alternative to
 akmods; RPM Fusion uses akmods only.
 
 ## Turning it off
