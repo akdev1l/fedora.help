@@ -9,3 +9,13 @@
 .brand:hover {
   border-bottom-style: solid;
 }
+
+/* Centre the key/value facts table at the top of a tool page. */
+.facts {
+  text-align: center;
+}
+
+.facts table {
+  margin-inline: auto;
+  text-align: left;
+}

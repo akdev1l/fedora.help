@@ -174,7 +174,7 @@ Check first whether the package is already in Fedora or RPM Fusion. COPR is
 where you go when it is not.
 
 One tool documented on this site,
-[Fedora Tricks](automation-fedoratricks.md), is distributed this way.
+[Fedora Tricks](tooling-fedoratricks.md), is distributed this way.
 
 ## Sources
 
