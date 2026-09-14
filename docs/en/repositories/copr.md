@@ -60,18 +60,16 @@ Check first whether the package is already in Fedora or
 
 ## Notable projects
 
-Projects documented elsewhere on this site, with the three checks above
-already done. Confirmed in September 2026.
+Projects documented elsewhere on this site. Confirmed in September 2026;
+which Fedora releases each one builds for is on its COPR page.
 
-| Project | What it provides | Builds for | Follows branching |
+| Project | What it provides | Maintainer | Follows branching |
 | --- | --- | --- | --- |
-| [`rhea/fedoratricks`][fedoratricks-copr] | [Fedora Tricks](../tooling/fedoratricks.md), a Bash tool that enables RPM Fusion, installs the multimedia stack and sets up the NVIDIA driver | Fedora 43, 44, 45 and Rawhide, on x86_64 and aarch64 | Yes |
+| [`rhea/fedoratricks`][fedoratricks-copr] | [Fedora Tricks](../tooling/fedoratricks.md), a Bash tool that enables RPM Fusion, installs the multimedia stack and sets up the NVIDIA driver | Rhea Gustavsson. The COPR description states the package is provided by the Fedora Discord server to its members | Yes |
 
-`rhea/fedoratricks` is maintained by Rhea Gustavsson, and its COPR description
-states the package is provided by the Fedora Discord server to its members. It
-had three successful builds at the time of writing, the most recent being
-0.3-1. [Fedora Tricks](../tooling/fedoratricks.md) covers what the tool does
-and what running it costs you.
+`rhea/fedoratricks` had three successful builds at the time of writing, the most
+recent being 0.3-1. [Fedora Tricks](../tooling/fedoratricks.md) covers what the
+tool does and what running it costs you.
 
 ## Sources
 
