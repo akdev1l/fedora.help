@@ -4,7 +4,7 @@ The rest of this site is written as manual steps. You read a command, decide
 whether you want what it does, and run it. Some projects package the same
 post-install work as a program instead: enable
 [the third-party repositories](../repositories/index.md), install
-[the codecs](../multimedia.md), set up [the NVIDIA driver](../nvidia/index.md),
+[the codecs](../multimedia/index.md), set up [the NVIDIA driver](../nvidia/index.md),
 write the usual modprobe options, all in one run.
 
 This section catalogues those tools, so you can decide whether to use one in

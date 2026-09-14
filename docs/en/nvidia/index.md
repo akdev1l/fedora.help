@@ -38,7 +38,7 @@ any NVIDIA card. What it does not do:
 
 The driver is absent because NVIDIA ships it under a licence that forbids the
 redistribution Fedora requires — the same reason
-[the codecs are missing](../multimedia.md#why-the-multimedia-stack-is-limited).
+[the codecs are missing](../multimedia/index.md#why-the-multimedia-stack-is-limited).
 See the [landing page][index] for the general shape of that.
 
 ## Do you need it?
@@ -181,7 +181,7 @@ Legacy branches have their own, capped at the last CUDA version that branch
 supported: `xorg-x11-drv-nvidia-580xx-cuda`, `-470xx-cuda`, `-390xx-cuda`.
 
 For VA-API video decode through NVIDIA's decoder, see
-[Multimedia and Codecs](../multimedia.md#nvidia) — the bridge package needs
+[Multimedia and Codecs](../multimedia/nvidia.md) — the bridge package needs
 environment variables that page documents.
 
 ### What akmods actually does, and why you must wait
