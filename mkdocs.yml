@@ -1,5 +1,8 @@
 site_name: fedora.help
 site_url: https://fedora.help
+repo_url: https://github.com/akdev1l/fedora.help
+repo_name: akdev1l/fedora.help
+edit_uri: edit/master/docs/
 copyright: >-
   Content licensed
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
@@ -7,6 +10,8 @@ theme:
   name: material
   features:
     - navigation.indexes
+    - content.action.edit
+    - content.action.view
 
 nav:
   - Home: index.md
