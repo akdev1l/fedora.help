@@ -1,11 +1,8 @@
 # Fedora Tricks
 
-The project spells its own name `fedoratricks`, which is also the command and
-the package name.
-
 <div class="facts" markdown>
 
-| Property | Value |
+| | |
 | --- | --- |
 | Home | [github.com/RheaAyase/fedoratricks][fedoratricks] |
 | Maintainer | Rhea Gustavsson, with three other contributors |
