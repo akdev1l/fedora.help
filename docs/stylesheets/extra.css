@@ -20,12 +20,12 @@
   text-align: left;
 }
 
-/* Fill the header row of a Markdown table. The colours are Material's own
-   foreground and background tokens, swapped, so the header inverts with the
-   theme instead of disappearing in dark mode. */
+/* Fill the header row of a Markdown table. Material pairs
+   --md-accent-bg-color with the accent as its readable foreground, and both
+   are defined per colour scheme, so the row stays legible in either theme. */
 .md-typeset table:not([class]) th {
-  background-color: var(--md-default-fg-color);
-  color: var(--md-default-bg-color);
+  background-color: var(--md-mermaid-node-fg-color);
+  color: var(--md-accent-bg-color);
 }
 
 .md-typeset table:not([class]) th a {
