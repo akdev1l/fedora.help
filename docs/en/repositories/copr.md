@@ -67,9 +67,8 @@ which Fedora releases each one builds for is on its COPR page.
 | --- | --- | --- | --- |
 | [`rhea/fedoratricks`][fedoratricks-copr] | [Fedora Tricks](../tooling/fedoratricks.md), a Bash tool that enables RPM Fusion, installs the multimedia stack and sets up the NVIDIA driver | Rhea Gustavsson. The COPR description states the package is provided by the Fedora Discord server to its members | Yes |
 
-`rhea/fedoratricks` had three successful builds at the time of writing, the most
-recent being 0.3-1. [Fedora Tricks](../tooling/fedoratricks.md) covers what the
-tool does and what running it costs you.
+[Fedora Tricks](../tooling/fedoratricks.md) covers what the tool does and what
+running it costs you.
 
 ## Sources
 
