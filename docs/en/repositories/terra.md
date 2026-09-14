@@ -38,8 +38,8 @@ by **Subatomic**, which generates the repository metadata; and located through
 **Tetsudou**, a metalink generator that points `dnf` at a mirror. Specs and
 update scripts live in a monorepo, and GitHub Actions builds on push.
 
-Six downstream distributions use it, among them Ultramarine, Bazzite and
-Nobara.
+Six downstream distributions use it: Ultramarine, Bazzite, Nobara, RakuOS,
+Zirconium and Armada.
 
 ## Enabling it
 
