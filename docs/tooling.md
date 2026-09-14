@@ -1,4 +1,4 @@
-# Automation
+# Tooling
 
 The rest of this site is written as manual steps. You read a command, decide
 whether you want what it does, and run it. Some projects package the same
@@ -21,6 +21,6 @@ disagree, that is noted.
 
 ## The tools
 
-- [Fedora Tricks](automation-fedoratricks.md) — a Bash command-line tool that
+- [Fedora Tricks](tooling-fedoratricks.md) — a Bash command-line tool that
   enables RPM Fusion, installs the multimedia stack, and sets up the NVIDIA
   driver. Distributed as an RPM from a COPR.

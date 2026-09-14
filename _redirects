@@ -1,0 +1,5 @@
+# Redirect rules, copied verbatim into the build output by ci/hooks/redirects.py.
+# Format: <from> <to> <status>   (Netlify / Cloudflare Pages syntax)
+
+/official  https://docs.fedoraproject.org/ 301
+/tricks    https://github.com/RheaAyase/fedoratricks 301

@@ -22,9 +22,9 @@ nav:
       - nvidia.md
       - The negativo17 Route: nvidia-negativo17.md
   - Multimedia and Codecs: multimedia.md
-  - Automation:
-      - automation.md
-      - Fedora Tricks: automation-fedoratricks.md
+  - Tooling:
+      - tooling.md
+      - Fedora Tricks: tooling-fedoratricks.md
 
 plugins:
   - search
@@ -48,7 +48,7 @@ plugins:
             NVIDIA Drivers: Controladores NVIDIA
             The negativo17 Route: La vía negativo17
             Multimedia and Codecs: Multimedia y Códecs
-            Automation: Automatización
+            Tooling: Herramientas
             Fedora Tricks: Fedora Tricks
         - locale: pt
           name: Português
@@ -60,7 +60,7 @@ plugins:
             NVIDIA Drivers: Drivers NVIDIA
             The negativo17 Route: A via negativo17
             Multimedia and Codecs: Multimídia e Codecs
-            Automation: Automação
+            Tooling: Ferramentas
             Fedora Tricks: Fedora Tricks
         - locale: fr
           name: Français
@@ -72,7 +72,7 @@ plugins:
             NVIDIA Drivers: Pilotes NVIDIA
             The negativo17 Route: La voie negativo17
             Multimedia and Codecs: Multimédia et codecs
-            Automation: Automatisation
+            Tooling: Outils
             Fedora Tricks: Fedora Tricks
         - locale: zh
           name: 简体中文
@@ -84,7 +84,7 @@ plugins:
             NVIDIA Drivers: NVIDIA 驱动
             The negativo17 Route: negativo17 方案
             Multimedia and Codecs: 多媒体与编解码器
-            Automation: 自动化
+            Tooling: 工具
             Fedora Tricks: Fedora Tricks
         - locale: ru
           name: Русский
@@ -96,7 +96,7 @@ plugins:
             NVIDIA Drivers: Драйверы NVIDIA
             The negativo17 Route: Вариант negativo17
             Multimedia and Codecs: Мультимедиа и кодеки
-            Automation: Автоматизация
+            Tooling: Инструменты
             Fedora Tricks: Fedora Tricks
 
   - git-revision-date-localized:
@@ -104,8 +104,12 @@ plugins:
       enable_creation_date: false
       fallback_to_build_date: true
 
+hooks:
+  - ci/hooks/redirects.py
+
 markdown_extensions:
   - attr_list
+  - md_in_html
 
 extra:
   brand: fedora.help
