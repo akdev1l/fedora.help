@@ -20,11 +20,11 @@ nav:
   - Third-Party Repositories: repositories.md
   - NVIDIA Drivers:
       - nvidia/index.md
-      - The negativo17 Route: nvidia/negativo17.md
+      - negativo17: nvidia/negativo17.md
   - Multimedia and Codecs: multimedia.md
   - Tooling:
       - tooling/index.md
-      - Fedora Tricks: tooling/fedoratricks.md
+      - fedoratricks: tooling/fedoratricks.md
 
 plugins:
   - search
@@ -46,10 +46,8 @@ plugins:
             Secure Boot: Arranque Seguro
             Third-Party Repositories: Repositorios de Terceros
             NVIDIA Drivers: Controladores NVIDIA
-            The negativo17 Route: La vía negativo17
             Multimedia and Codecs: Multimedia y Códecs
             Tooling: Herramientas
-            Fedora Tricks: Fedora Tricks
         - locale: pt
           name: Português
           build: true
@@ -58,10 +56,8 @@ plugins:
             Secure Boot: Inicialização Segura
             Third-Party Repositories: Repositórios de Terceiros
             NVIDIA Drivers: Drivers NVIDIA
-            The negativo17 Route: A via negativo17
             Multimedia and Codecs: Multimídia e Codecs
             Tooling: Ferramentas
-            Fedora Tricks: Fedora Tricks
         - locale: fr
           name: Français
           build: true
@@ -70,10 +66,8 @@ plugins:
             Secure Boot: Démarrage sécurisé
             Third-Party Repositories: Dépôts tiers
             NVIDIA Drivers: Pilotes NVIDIA
-            The negativo17 Route: La voie negativo17
             Multimedia and Codecs: Multimédia et codecs
             Tooling: Outils
-            Fedora Tricks: Fedora Tricks
         - locale: zh
           name: 简体中文
           build: true
@@ -82,10 +76,8 @@ plugins:
             Secure Boot: 安全启动
             Third-Party Repositories: 第三方仓库
             NVIDIA Drivers: NVIDIA 驱动
-            The negativo17 Route: negativo17 方案
             Multimedia and Codecs: 多媒体与编解码器
             Tooling: 工具
-            Fedora Tricks: Fedora Tricks
         - locale: ru
           name: Русский
           build: true
@@ -94,10 +86,8 @@ plugins:
             Secure Boot: Безопасная загрузка
             Third-Party Repositories: Сторонние репозитории
             NVIDIA Drivers: Драйверы NVIDIA
-            The negativo17 Route: Вариант negativo17
             Multimedia and Codecs: Мультимедиа и кодеки
             Tooling: Инструменты
-            Fedora Tricks: Fedora Tricks
 
   - git-revision-date-localized:
       type: date
