@@ -39,8 +39,7 @@ by **Subatomic**, which generates the repository metadata; and located through
 update scripts live in a monorepo, and GitHub Actions builds on push.
 
 Six downstream distributions use it, among them Ultramarine, Bazzite and
-Nobara — so a Bazzite system already has Terra whether or not its user went
-looking for it.
+Nobara.
 
 ## Enabling it
 
