@@ -36,12 +36,12 @@ Four commands are reachable in 0.3: `rpmfusion`, `multimedia`, `nvidia` and
 
 | Command | What it does | Manual equivalent |
 | --- | --- | --- |
-| `rpmfusion install` | Installs the free and nonfree release packages for the release `rpm -E %fedora` reports, then enables the four repositories explicitly | [Third-Party Repositories](repositories.md) |
+| `rpmfusion install` | Installs the free and nonfree release packages for the release `rpm -E %fedora` reports, then enables the four repositories explicitly | [Third-Party Repositories](../repositories.md) |
 | `rpmfusion remove` | Removes the two release packages. The tainted repository is untouched at both ends | |
-| `multimedia install` | Swaps RPM Fusion's FFmpeg in for `ffmpeg-free` and installs the `multimedia` group, offering to run the `rpmfusion` step first if the repositories are missing | [Multimedia and Codecs](multimedia.md) |
+| `multimedia install` | Swaps RPM Fusion's FFmpeg in for `ffmpeg-free` and installs the `multimedia` group, offering to run the `rpmfusion` step first if the repositories are missing | [Multimedia and Codecs](../multimedia.md) |
 | `multimedia install --with-optional` | Adds codec extras, then reads the GPU from `lspci` and adds the VA-API driver for it | |
 | `multimedia install --config` | Intel only. Writes `/etc/modprobe.d/intel-fedoratricks.conf` with `enable_guc` and `enable_fbc=1`, then rebuilds the initramfs | |
-| `nvidia install` | Picks a driver branch from the card's marketing name, installs `akmod-nvidia` and the matching CUDA package, and enables `nvidia-persistenced` | [NVIDIA Drivers](nvidia.md) |
+| `nvidia install` | Picks a driver branch from the card's marketing name, installs `akmod-nvidia` and the matching CUDA package, and enables `nvidia-persistenced` | [NVIDIA Drivers](../nvidia/index.md) |
 | `nvidia install --config` | Writes `/etc/modprobe.d/nvidia-fedoratricks.conf` with the power-management and Resizable BAR options, enables the sleep services, and forces the modules into the initramfs | |
 | `logs` | Collects journal, `dmesg` and `inxi` output for a support request | — |
 
@@ -50,7 +50,7 @@ Both `install` commands have a matching `remove`.
 ## How to run it
 
 The COPR is a personal repository, under the same trust model as anything on
-[Third-Party Repositories](repositories.md).
+[Third-Party Repositories](../repositories.md).
 
 ```bash
 sudo dnf copr enable rhea/fedoratricks

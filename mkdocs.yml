@@ -19,18 +19,18 @@ nav:
   - Secure Boot: secure-boot.md
   - Third-Party Repositories: repositories.md
   - NVIDIA Drivers:
-      - nvidia.md
-      - The negativo17 Route: nvidia-negativo17.md
+      - nvidia/index.md
+      - The negativo17 Route: nvidia/negativo17.md
   - Multimedia and Codecs: multimedia.md
   - Tooling:
-      - tooling.md
-      - Fedora Tricks: tooling-fedoratricks.md
+      - tooling/index.md
+      - Fedora Tricks: tooling/fedoratricks.md
 
 plugins:
   - search
   - macros
   - i18n:
-      docs_structure: suffix
+      docs_structure: folder
       reconfigure_material: true
       reconfigure_search: true
       languages:

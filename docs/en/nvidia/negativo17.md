@@ -1,7 +1,7 @@
 # The negativo17 Route
 
-[negativo17](repositories.md#negativo17) packages the same NVIDIA driver as RPM
-Fusion, differently. [NVIDIA Drivers](nvidia.md) documents the RPM Fusion route
+[negativo17](../repositories.md#negativo17) packages the same NVIDIA driver as RPM
+Fusion, differently. [NVIDIA Drivers](index.md) documents the RPM Fusion route
 and is the one to follow if you have no particular reason to be here. This page
 covers the alternative, and how to move between the two.
 
@@ -33,13 +33,13 @@ CUDA libraries without the display driver, for instance.
 
 negativo17 packages only the current branch. If your card needs 580, 470 or
 390, this route is not available to you — see
-[Identify your GPU and pick a branch](nvidia.md#identify-your-gpu-and-pick-a-branch).
+[Identify your GPU and pick a branch](index.md#identify-your-gpu-and-pick-a-branch).
 
 ## Install
 
-Sort out [Secure Boot](secure-boot.md) first, the same as on the RPM Fusion
+Sort out [Secure Boot](../secure-boot.md) first, the same as on the RPM Fusion
 route. Enable the `fedora-nvidia` repository as described in
-[Third-Party Repositories](repositories.md#negativo17), then install with
+[Third-Party Repositories](../repositories.md#negativo17), then install with
 akmods:
 
 ```bash
@@ -57,7 +57,7 @@ kernel changes — with different plumbing. DKMS hooks kernel package
 installation and rebuilds inline; akmods runs as a systemd service. DKMS signs
 its modules with its own per-system key at `/var/lib/dkms/mok.pub`, which you
 enroll with `mokutil --import` the same way — see
-[Secure Boot](secure-boot.md#if-you-use-dkms-instead). akmods here uses the
+[Secure Boot](../secure-boot.md#if-you-use-dkms-instead). akmods here uses the
 same `/etc/pki/akmods` key as the RPM Fusion route.
 
 CUDA and the rest are separate packages, which is the point of this repo:
@@ -72,7 +72,7 @@ sudo dnf5 install nvidia-driver-libs.i686
 
 Wait for the module to build and verify it before rebooting — the same
 `modinfo -F version nvidia` check, and the same reasons, as
-[What akmods actually does](nvidia.md#what-akmods-actually-does-and-why-you-must-wait).
+[What akmods actually does](index.md#what-akmods-actually-does-and-why-you-must-wait).
 
 > negativo17's own installation page tells you to disable Secure Boot rather
 > than sign, and points at Red Hat's module-signing guide as the alternative.

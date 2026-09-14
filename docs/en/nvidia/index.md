@@ -117,7 +117,7 @@ documentation and most community troubleshooting assumes.
 A second repository, negativo17, packages the same driver under different names
 with overlapping file ownership. The two cannot be mixed. If you want newer
 driver branches sooner, DKMS instead of akmods, or CUDA libraries without the
-display driver, see [The negativo17 Route](nvidia-negativo17.md) — it compares
+display driver, see [The negativo17 Route](negativo17.md) — it compares
 the two and carries the procedure for switching.
 
 ## Secure Boot: do this before you install anything
@@ -130,7 +130,7 @@ installation output says so.
 mokutil --sb-state
 ```
 
-If that says `SecureBoot enabled`, work through [Secure Boot](secure-boot.md)
+If that says `SecureBoot enabled`, work through [Secure Boot](../secure-boot.md)
 before installing the driver.
 
 ## Installing the driver
@@ -139,7 +139,7 @@ before installing the driver.
 
 The driver is in RPM Fusion's **nonfree** repository. Enable `free` and
 `nonfree`, then update and reboot, as described in
-[Third-Party Repositories](repositories.md#rpm-fusion).
+[Third-Party Repositories](../repositories.md#rpm-fusion).
 
 The reboot matters here. Install the driver against a kernel you are not
 running and the akmod system will cope, but you have made your own debugging
@@ -177,7 +177,7 @@ Legacy branches have their own, capped at the last CUDA version that branch
 supported: `xorg-x11-drv-nvidia-580xx-cuda`, `-470xx-cuda`, `-390xx-cuda`.
 
 For VA-API video decode through NVIDIA's decoder, see
-[Multimedia and Codecs](multimedia.md#nvidia) — the bridge package needs
+[Multimedia and Codecs](../multimedia.md#nvidia) — the bridge package needs
 environment variables that page documents.
 
 ### What akmods actually does, and why you must wait
@@ -448,7 +448,7 @@ can fail outright. Reboot to apply.
 The outline matches the classic install. Every mechanical step differs.
 
 Add RPM Fusion and reboot so the repositories exist — see
-[Third-Party Repositories](repositories.md#on-atomic-desktops).
+[Third-Party Repositories](../repositories.md#on-atomic-desktops).
 
 Layer the driver:
 
@@ -481,10 +481,10 @@ What differs from the classic workflow:
   the GRUB menu.
 - **Major version upgrades need the release packages re-layered** in the same
   transaction as the rebase — see
-  [Third-Party Repositories](repositories.md#on-atomic-desktops).
+  [Third-Party Repositories](../repositories.md#on-atomic-desktops).
 - **Secure Boot is genuinely awkward.** The signing key has to be available
   during the compose, which means packaging it rather than leaving it in
-  `/etc` — see [Secure Boot](secure-boot.md#on-atomic-desktops).
+  `/etc` — see [Secure Boot](../secure-boot.md#on-atomic-desktops).
 
 ### The prebuilt route
 
@@ -497,7 +497,7 @@ it.
 You still have to enroll their signing key once, which those images wrap in
 `ujust enroll-secure-boot-key`. The password is set by the image rather than by
 you — Bluefin documents `universalblue`, and community threads mention
-`ublue-os` for other images. See [Secure Boot](secure-boot.md#on-atomic-desktops)
+`ublue-os` for other images. See [Secure Boot](../secure-boot.md#on-atomic-desktops)
 for the enrollment mechanics.
 
 The trade is the usual one for prebuilt images: you get someone else's
@@ -519,7 +519,7 @@ cat /proc/cmdline    # should no longer mention rd.driver.blacklist=nouveau
 ```
 
 If you installed from negativo17 instead, its removal sequence is on
-[The negativo17 Route](nvidia-negativo17.md#switching-between-the-two).
+[The negativo17 Route](negativo17.md#switching-between-the-two).
 
 > Again: not `dnf remove '*nvidia*'`. That takes `nvidia-gpu-firmware` with it,
 > which nouveau and `nova_core` require.
