@@ -12,6 +12,7 @@ theme:
   logo: assets/logo.svg
   favicon: assets/favicon.svg
   features:
+    - content.code.copy
     - navigation.indexes
     - content.action.edit
     - content.action.view
@@ -111,6 +112,8 @@ hooks:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
 
 extra:
   brand: fedora.help
