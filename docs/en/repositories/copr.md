@@ -66,14 +66,26 @@ which Fedora releases each one builds for is on its COPR page.
 | Project | What it provides | Maintainer | Follows branching |
 | --- | --- | --- | --- |
 | [`rhea/fedoratricks`][fedoratricks-copr] | [Fedora Tricks](../tooling/fedoratricks.md), a Bash tool that enables RPM Fusion, installs the multimedia stack and sets up the NVIDIA driver | Rhea Gustavsson. The COPR description states the package is provided by the Fedora Discord server to its members | Yes |
+| [`@kernel-vanilla/fedora`][kernel-vanilla-copr] | Upstream kernels built the way Fedora builds its own, from the series your release already uses. One of seven repositories covering different kernel series | Thorsten Leemhuis, since 2012. None of Fedora's own kernel maintainers are involved | Yes |
 
-[Fedora Tricks](../tooling/fedoratricks.md) covers what the tool does and what
-running it costs you.
+[Fedora Tricks](../tooling/fedoratricks.md) covers what the tool does and how to use it.
+
+The kernel repositories carry two conditions worth knowing before you enable
+one. Signing a vanilla kernel for standard UEFI Secure Boot is not currently
+possible, so you have to turn
+[Secure Boot](../secure-boot.md#turning-it-off) off; and moving a running
+system across to them needs `--setopt=allow_vendor_change=1`, because the
+kernel packages change vendor. Fedora's [wiki page][kernel-vanilla-wiki]
+carries the current commands and the differences between the seven.
+
 
 ## Sources
 
 - [COPR][copr], and Fedora's [COPR user documentation][copr-docs]
+- Fedora wiki, [Kernel Vanilla Repositories][kernel-vanilla-wiki]
 
 [copr]: https://copr.fedorainfracloud.org/
 [copr-docs]: https://docs.pagure.org/copr.copr/user_documentation.html
 [fedoratricks-copr]: https://copr.fedorainfracloud.org/coprs/rhea/fedoratricks/
+[kernel-vanilla-copr]: https://copr.fedorainfracloud.org/coprs/g/kernel-vanilla/fedora/
+[kernel-vanilla-wiki]: https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories
