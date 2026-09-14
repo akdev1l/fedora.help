@@ -24,6 +24,7 @@ nav:
       - repositories/index.md
       - RPM Fusion: repositories/rpmfusion.md
       - negativo17: repositories/negativo17.md
+      - Flathub: repositories/flathub.md
       - COPR: repositories/copr.md
   - NVIDIA Drivers:
       - nvidia/index.md
