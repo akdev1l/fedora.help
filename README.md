@@ -33,8 +33,9 @@ links and other warnings into failures.
 ## Layout
 
 ```
-docs/            one Markdown file per page, plus translations
-docs/stylesheets/extra.css
+docs/en/         English pages, one Markdown file each
+docs/<locale>/   translations, mirroring the English tree
+docs/stylesheets/extra.css   shared, outside the language folders
 mkdocs.yml       nav, plugins, languages
 main.py          macros available to pages
 ci/              container definition and the mkdocs wrapper
@@ -64,12 +65,16 @@ x86_64.
 
 ## Translations
 
-Translations live beside their English source as `<page>.<locale>.md`, so the
-French landing page is `docs/index.fr.md`. Locales are configured in
-`mkdocs.yml`, where the navigation labels are translated too.
+Each language has its own folder under `docs/`, mirroring the English tree, so
+the French landing page is `docs/fr/index.md`. Locales are configured in
+`mkdocs.yml`, where the navigation labels are translated too. Assets shared
+across languages, such as the stylesheet, sit outside the language folders.
 
 Pages with no translation yet fall back to English at the translated URL, so a
 language can be added one page at a time. Start with `index.md`.
+
+Paths in `nav` are written without the language folder — `nvidia/index.md`, not
+`en/nvidia/index.md`.
 
 ## Licence
 

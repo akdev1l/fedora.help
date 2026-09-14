@@ -126,7 +126,7 @@ the repository's own GPG key.
 
 The two package the same NVIDIA driver under different names with overlapping
 file ownership, and dnf will install pieces of both without complaint. Pick one
-route and stay on it — [NVIDIA Drivers](nvidia.md) compares them and has the
+route and stay on it — [NVIDIA Drivers](nvidia/index.md) compares them and has the
 procedure for switching if you already have the wrong one installed.
 
 Having both repositories enabled is fine in itself, as long as any given piece
@@ -174,7 +174,7 @@ Check first whether the package is already in Fedora or RPM Fusion. COPR is
 where you go when it is not.
 
 One tool documented on this site,
-[Fedora Tricks](tooling-fedoratricks.md), is distributed this way.
+[Fedora Tricks](tooling/fedoratricks.md), is distributed this way.
 
 ## Sources
 

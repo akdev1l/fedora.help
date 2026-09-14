@@ -21,6 +21,6 @@ disagree, that is noted.
 
 ## The tools
 
-- [Fedora Tricks](tooling-fedoratricks.md) — a Bash command-line tool that
+- [Fedora Tricks](fedoratricks.md) — a Bash command-line tool that
   enables RPM Fusion, installs the multimedia stack, and sets up the NVIDIA
   driver. Distributed as an RPM from a COPR.

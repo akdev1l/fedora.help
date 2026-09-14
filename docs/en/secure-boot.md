@@ -133,7 +133,7 @@ mokutil --test-key /etc/pki/akmods/certs/public_key.der
 
 **Black screen after installing a driver.** Boot the previous kernel from the
 GRUB menu, or add `nomodeset` to the kernel command line from the GRUB editor,
-then work from a TTY. [NVIDIA Drivers](nvidia.md) has the full recovery
+then work from a TTY. [NVIDIA Drivers](nvidia/index.md) has the full recovery
 sequence for that case.
 
 **`mokutil --test-key` says the key is not enrolled, but you enrolled it.**
