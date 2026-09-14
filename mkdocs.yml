@@ -2,7 +2,7 @@ site_name: fedora.help
 site_url: https://fedora.help
 repo_url: https://github.com/akdev1l/fedora.help
 repo_name: akdev1l/fedora.help
-edit_uri: edit/master/docs/
+edit_uri: edit/main/docs/
 copyright: >-
   Content licensed
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
