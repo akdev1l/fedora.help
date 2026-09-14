@@ -19,3 +19,16 @@
   margin-inline: auto;
   text-align: left;
 }
+
+/* Fill the header row of a Markdown table. The colours are Material's own
+   foreground and background tokens, swapped, so the header inverts with the
+   theme instead of disappearing in dark mode. */
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-fg-color);
+  color: var(--md-default-bg-color);
+}
+
+.md-typeset table:not([class]) th a {
+  color: inherit;
+  text-decoration: underline;
+}
