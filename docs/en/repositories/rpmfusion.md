@@ -4,12 +4,12 @@
 Fedora, and what most of this site assumes. It comes in three parts:
 
 - **free** — open source software Fedora excludes for patent reasons.
-  [The full FFmpeg](../multimedia.md#swap-to-the-full-ffmpeg),
+  [The full FFmpeg](../multimedia/index.md#swap-to-the-full-ffmpeg),
   `libavcodec-freeworld`, x264/x265, `mesa-va-drivers-freeworld`,
-  [the restricted GStreamer plugins](../multimedia.md#gstreamer-plugins).
+  [the restricted GStreamer plugins](../multimedia/index.md#gstreamer-plugins).
 - **nonfree** — redistributable but not open source.
   [The NVIDIA driver](../nvidia/index.md),
-  [Intel's full media driver](../multimedia.md#intel), Steam.
+  [Intel's full media driver](../multimedia/intel.md), Steam.
 - **tainted** — a separate opt-in repository for packages with a worse legal
   position still, notably `libdvdcss`. Not enabled by installing the other two.
 
@@ -79,7 +79,7 @@ sudo dnf install rpmfusion-free-release-tainted
 ```
 
 What it holds is covered where it is used — see
-[Multimedia and Codecs](../multimedia.md#optional-extras) for `libdvdcss`.
+[Multimedia and Codecs](../multimedia/index.md#optional-extras) for `libdvdcss`.
 
 ## On atomic desktops
 

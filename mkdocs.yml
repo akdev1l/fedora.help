@@ -27,7 +27,12 @@ nav:
   - NVIDIA Drivers:
       - nvidia/index.md
       - negativo17: nvidia/negativo17.md
-  - Multimedia and Codecs: multimedia.md
+  - Multimedia and Codecs:
+      - multimedia/index.md
+      - AMD: multimedia/amd.md
+      - Intel: multimedia/intel.md
+      - NVIDIA: multimedia/nvidia.md
+      - Atomic Desktops: multimedia/atomic.md
   - Tooling:
       - tooling/index.md
       - fedoratricks: tooling/fedoratricks.md

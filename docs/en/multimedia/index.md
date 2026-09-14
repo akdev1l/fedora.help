@@ -15,7 +15,7 @@ and why none of it applies to [your Flatpak apps](#flatpak-apps).
 The constraint is legal, not technical. H.264, HEVC/H.265, VC-1 and several
 older MPEG formats are covered by patent pools that license per-unit, and
 shipping decoders for them would mean paying those pools or accepting the
-liability. See the [landing page](index.md) for the general shape of that
+liability. See the [landing page](../index.md) for the general shape of that
 argument.
 
 Two specific things are missing, and both follow from the same decision:
@@ -74,7 +74,7 @@ treat that output as the authority rather than any list written down elsewhere.
 
 ## RPM Fusion
 
-The codecs on this page come from [RPM Fusion](repositories/rpmfusion.md): the
+The codecs on this page come from [RPM Fusion](../repositories/rpmfusion.md): the
 `free` side for the patent-encumbered open source packages, `nonfree` for
 Intel's full media driver. That page covers enabling it, what it costs you in
 trust and support, and the atomic-desktop variant.
@@ -157,7 +157,7 @@ Adds the x264 and x265 *encoders* to VLC. VLC's decoding comes from FFmpeg, so
 this only matters if you transcode.
 
 Encrypted DVDs need the tainted repository — see
-[Third-Party Repositories](repositories/rpmfusion.md#tainted) — and then `libdvdcss`:
+[Third-Party Repositories](../repositories/rpmfusion.md#tainted) — and then `libdvdcss`:
 
 ```bash
 sudo dnf install libdvdcss
@@ -198,80 +198,16 @@ RPM Fusion's drivers install into the first two directories, so they take
 precedence automatically. You do not need `LIBVA_DRIVERS_PATH` or any other
 environment variable to make the swap take effect.
 
-### AMD
+Which package restores hardware decode depends on the GPU:
 
-```bash
-sudo dnf install mesa-va-drivers-freeworld
-```
+| GPU | Page |
+| --- | --- |
+| AMD | [AMD hardware decode](amd.md) |
+| Intel | [Intel hardware decode](intel.md) |
+| NVIDIA | [NVIDIA hardware decode](nvidia.md) |
 
-Since Fedora no longer ships `mesa-va-drivers`, this is a plain install rather
-than a swap; the freeworld package provides the name. It covers `radeonsi` and
-`r600`. Note that AV1 and VP9 decode on AMD work on stock Fedora — it is H.264,
-HEVC and VC-1 that this package restores.
-
-Vulkan Video decode is a separate, newer path. RPM Fusion documents it as a
-swap:
-
-```bash
-sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
-```
-
-Only worth doing if you have an application that specifically uses Vulkan Video;
-most still use VA-API.
-
-### Intel
-
-Fedora ships `libva-intel-media-driver`, which is its own build of Intel's iHD
-driver with the restricted codecs removed. RPM Fusion's nonfree repository ships
-the complete `intel-media-driver`, which installs to `/usr/lib64/dri-nonfree`
-and therefore wins the search order:
-
-```bash
-sudo dnf install intel-media-driver
-```
-
-For older Intel graphics (roughly pre-Broadwell, the i965 generation), the driver
-is a different one and lives in RPM Fusion free:
-
-```bash
-sudo dnf install libva-intel-driver
-```
-
-If `vainfo` picks the wrong driver on a machine that could use either, force it:
-
-```bash
-LIBVA_DRIVER_NAME=iHD vainfo
-```
-
-### NVIDIA
-
-NVIDIA needs the proprietary driver first — that is
-[its own chapter](nvidia/index.md), and everything here assumes it is already
-installed and working. The VA-API side is a shim that translates VA-API calls
-to NVDEC, and Fedora now ships it in the main repositories:
-
-```bash
-sudo dnf install libva-nvidia-driver
-```
-
-Two things to know about it. First, its own description says it is designed for
-Firefox's decode path and "may not operate correctly in other applications" —
-that is upstream's assessment, not a hedge. Second, it usually needs to be
-pointed at explicitly. The upstream project documents `LIBVA_DRIVER_NAME=nvidia`
-as required on current libva, `NVD_BACKEND=direct` as the recommended backend on
-driver 525 and later, and `MOZ_DISABLE_RDD_SANDBOX=1` for Firefox. Check the
-[upstream README][nvidia-vaapi] for the current set before adding any of them
-permanently; the required variables have changed more than once.
-
-For everything else on NVIDIA, VDPAU still works:
-
-```bash
-sudo dnf install vdpauinfo
-```
-
-```bash
-vdpauinfo
-```
+On Silverblue, Kinoite and the other rpm-ostree variants, the whole approach
+differs — see [Atomic Desktops](atomic.md).
 
 ## Firefox and Chromium
 
@@ -346,40 +282,6 @@ none installed, and vice versa. Check with
 [the application's own diagnostics](#inside-a-flatpak)
 (`about:support`, `chrome://gpu`, mpv's console output) rather than assuming the
 host result carries over.
-
-## Atomic desktops
-
-On Silverblue, Kinoite and the other atomic variants, `dnf` is not the tool;
-`rpm-ostree` layers packages onto the base image, and every change costs a
-reboot, slows every subsequent update, and is one more thing that can block a
-rebase. That is why the usual answer on atomic is Flatpak-first: install VLC,
-mpv, Firefox and the rest from Flathub and let
-[their runtimes bring their own codecs](#flatpak-apps), which sidesteps this
-entire page.
-
-If you do want the host stack layered, layer the RPM Fusion release packages
-first and reboot — see
-[Third-Party Repositories](repositories/rpmfusion.md#on-atomic-desktops).
-
-The FFmpeg swap has no `rpm-ostree` equivalent, so it is expressed as an override
-that removes the whole `-free` family and installs the replacement in one
-transaction:
-
-```bash
-sudo rpm-ostree override remove \
-  ffmpeg-free libavcodec-free libavdevice-free libavfilter-free \
-  libavformat-free libavutil-free libpostproc-free libswresample-free \
-  libswscale-free fdk-aac-free \
-  --install ffmpeg
-```
-
-The hardware driver packages layer normally — `mesa-va-drivers-freeworld`,
-`intel-media-driver` or `libva-nvidia-driver`,
-[same choice as above](#hardware-video-acceleration).
-
-One atomic-specific trap: at a major release upgrade the RPM Fusion release
-packages have to be replaced in the same transaction as the rebase — see
-[Third-Party Repositories](repositories/rpmfusion.md#on-atomic-desktops).
 
 ## Testing what your system supports
 
@@ -651,7 +553,7 @@ empty.
 ### Why does hardware decode fail on NVIDIA when everything is installed?
 
 NVIDIA plus VA-API is the combination most likely to need the environment
-variables in [the NVIDIA section](#nvidia) above; `libva-nvidia-driver` is a shim
+variables in [the NVIDIA section](nvidia.md) above; `libva-nvidia-driver` is a shim
 over NVDEC and usually has to be pointed at explicitly. Set those before
 concluding the codecs are at fault, and confirm the result with
 [Did playback use hardware decode](#did-playback-use-hardware-decode) rather than
@@ -669,11 +571,9 @@ this page and it disagree:
 - RPM Fusion, [OSTree / atomic desktops][rpmfusion-ostree]
 - Fedora wiki, [Hardware Video Acceleration][fedora-hwvideo] and
   [Firefox Hardware acceleration][fedora-firefox-hw]
-- [nvidia-vaapi-driver][nvidia-vaapi], upstream of `libva-nvidia-driver`
 
 [rpmfusion-config]: https://rpmfusion.org/Configuration
 [rpmfusion-multimedia]: https://rpmfusion.org/Howto/Multimedia
 [rpmfusion-ostree]: https://rpmfusion.org/Howto/OSTree
 [fedora-hwvideo]: https://fedoraproject.org/wiki/Hardware_Video_Acceleration
 [fedora-firefox-hw]: https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
-[nvidia-vaapi]: https://github.com/elFarto/nvidia-vaapi-driver
