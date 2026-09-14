@@ -1,6 +1,6 @@
 # The negativo17 Route
 
-[negativo17](../repositories.md#negativo17) packages the same NVIDIA driver as RPM
+[negativo17](../repositories/negativo17.md) packages the same NVIDIA driver as RPM
 Fusion, differently. [NVIDIA Drivers](index.md) documents the RPM Fusion route
 and is the one to follow if you have no particular reason to be here. This page
 covers the alternative, and how to move between the two.
@@ -41,7 +41,7 @@ negativo17 packages only the current branch. If your card needs 580, 470 or
 Sort out [Secure Boot](../secure-boot.md) first, the same as on
 [the RPM Fusion route](index.md#secure-boot-do-this-before-you-install-anything).
 Enable the `fedora-nvidia` repository as described in
-[Third-Party Repositories](../repositories.md#negativo17), then install with
+[Third-Party Repositories](../repositories/negativo17.md), then install with
 akmods:
 
 ```bash

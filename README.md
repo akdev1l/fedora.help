@@ -57,7 +57,7 @@ be verified, the page says so instead of guessing. Pages carry a `Sources`
 section listing the upstream documentation they were checked against.
 
 Cross-reference other pages instead of repeating them. Each fact has one home:
-repository setup lives in `repositories.md`, module signing in
+repository setup lives under `repositories/`, module signing in
 `secure-boot.md`.
 
 The site is Wayland-only. It targets currently supported Fedora releases on
